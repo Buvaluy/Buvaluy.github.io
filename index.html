@@ -1,5 +1,79 @@
 <!DOCTYPE html>
 <html>
+  <style type="text/css">
+.primer {font-size: 3.5em; position: relative;}
+
+.primer:after {
+  content: "?";
+  color:rgba( 255, 0, 0, 0);
+  position: absolute; right: -25px; top: -7px;
+  -moz-animation: otvet 8s forwards;
+  -webkit-animation: otvet 8s forwards;
+  -ms-animation: otvet 8s forwards;
+}
+.primer:before {
+  content: "8   \2639";
+  position: absolute; right: -80px; top: -7px;
+  color:rgba( 255, 0, 0, 0);
+  -moz-animation: vosem 8s 8s forwards;
+  -webkit-animation: vosem 8s 8s forwards;
+  -ms-animation: vosem 8s 8s forwards;
+}
+
+.shest {
+  position: relative;
+  font-size: 3.5em;
+  color:rgba( 0, 255, 0, 0);
+  -moz-animation: shest 1s 16s forwards;
+  -webkit-animation: shest 1s 16s forwards;
+  -ms-animation: shest 1s 16s forwards;
+}
+
+.shest:after {
+  position: absolute; right: -50px; top: -10px;
+  content: " \263a";
+}
+
+@-moz-keyframes otvet { 
+0% { color:rgba( 255, 255, 0, 1); } 
+30% { color:rgba( 216, 0, 255, 1);}
+60% { color:rgba( 255, 255, 0, 1); }
+100% { color:rgba( 255, 255, 0, 0);} }   
+
+@-moz-keyframes vosem { 
+from { color:rgba( 255, 0, 0, 1); }
+to { color:rgba( 255, 0, 0, 0); } }   
+
+@-moz-keyframes shest { 0%, 100% { color:rgba( 0, 255, 0, 1); }}
+
+@-webkit-keyframes otvet { 
+0%, 60% { color:rgba( 255, 255, 0, 1); } /* объединяем две строки см. @-moz-keyframes otvet */ 
+30% { color:rgba( 216, 0, 255, 1);}
+100% { color:rgba( 255, 255, 0, 0);} }   
+
+@-webkit-keyframes vosem {  /* ключевые кадры с именем vosem */ 
+from { color:rgba( 255, 0, 0, 1); }  /* начальный кадр */  
+to { color:rgba( 255, 0, 0, 0); } }   /* конечный кадр */     
+
+@-webkit-keyframes shest { 0%, 100% { color:rgba( 0, 255, 0, 1); }}
+
+@-ms-keyframes otvet { 
+0%, 60% { color:rgba( 255, 255, 0, 1); }
+30% { color:rgba( 216, 0, 255, 1);}
+100% { color:rgba( 255, 255, 0, 0);} }   
+
+@-ms-keyframes vosem { 
+from { color:rgba( 255, 0, 0, 1); }
+to { color:rgba( 255, 0, 0, 0); } }   
+
+@-ms-keyframes shest { 0%, 100% { color:rgba( 0, 255, 0, 1); }}
+
+</style>
+
+
+  
+  
+  
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -21,7 +95,7 @@
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://vk.com/id11810111">View on Vk</a>
+    <a  href="https://vk.com/id11810111">View on Vk</a>
     <div class="shell">
 
       <header>
@@ -47,7 +121,7 @@
       <section id="main_content">
         <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
+<span class="primer">2+2*2=</span><span class="shest">6</span>
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
 
 <h3>
