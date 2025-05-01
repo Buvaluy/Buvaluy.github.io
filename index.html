@@ -116,13 +116,15 @@
       color: #555;
   border-right: 2px solid #e91e63;
   white-space: nowrap;
-  animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
+  animation: typing 6s steps(30) forwards, blink 0.75s step-end infinite;
   width: 0;
+        font-weight: bold;
+  font-family: 'Courier New', Courier, monospace; /* друкарська машинка */
 }
 
     @keyframes typing {
   from { width: 0; }
-  to   { width: 23ch; } /* Підлаштовується під довжину тексту */
+  to   { width: 43ch; } /* Підлаштовується під довжину тексту */
 }
 
 @keyframes blink {
