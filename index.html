@@ -107,6 +107,9 @@
     }
 
     .typewriter {
+       display: inline-block; /* важливо! */
+        white-space: nowrap;
+
   overflow: hidden;
       font-size: 1.5em;
       margin-bottom: 30px;
@@ -119,7 +122,7 @@
 
     @keyframes typing {
   from { width: 0; }
-  to { width: 300px; }
+  to   { width: 23ch; } /* Підлаштовується під довжину тексту */
 }
 
 @keyframes blink {
@@ -196,7 +199,7 @@
 
   <div class="container">
     <h1 class="rainbow-text">Happy Birthday! 🎂</h1>
-    <div class="typewriter">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
+    <div class="typewriter"  style="text-align: center;">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
 
     <!--
 <div class="photo-placeholder">
