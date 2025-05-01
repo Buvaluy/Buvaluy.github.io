@@ -98,6 +98,23 @@
       animation: float 4s ease-in-out infinite;
     }
 
+    .typewriter {
+  overflow: hidden;
+  border-right: 2px solid #e91e63;
+  white-space: nowrap;
+  animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
+  width: 0;
+}
+
+    @keyframes typing {
+  from { width: 0; }
+  to { width: 300px; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
     footer {
       margin-top: 60px;
       font-size: 1em;
@@ -167,8 +184,8 @@
   <div class="confetti" id="confetti"></div>
 
   <div class="container">
-    <h1>З Днем Народження, Віка! 🎂</h1>
-    <div class="subtitle">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
+    <h1>Happy Birthday! 🎂</h1>
+    <div class="subtitle" class="typewriter">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
 
     <!--
 <div class="photo-placeholder">
@@ -188,6 +205,9 @@
   <div class="photo-box right" style="animation-delay: 3s;">
     <img src="rigth.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
   </div>
+  <div class="photo-box right" style="animation-delay: 4s;">
+    <img src="u1.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
+  </div>
 </div>
 
 
@@ -202,13 +222,13 @@
       <div class="emoji">🌷</div>
     </div>
 
-    <!-- 🐴 Поні -->
+    
     <div class="pony-block">
-      🐴 Вітання від поні для наймилішої Віки 🌈
+      💗 My bestie 💗
     </div>
 
     <footer>
-      З любов’ю та усмішкою 💗 Гарного святкування!
+      
     </footer>
   </div>
 
