@@ -83,6 +83,19 @@
       animation: fadeInUp 2s ease-out;
     }
 
+    .rainbow-text {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
     .emoji {
       transition: transform 0.3s;
       cursor: default;
@@ -93,8 +106,8 @@
     }
 
     .pony-block {
-      font-size: 2em;
-      margin-top: 40px;
+      font-size: 3em;
+      margin-top: 80px;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -185,7 +198,7 @@
 
   <div class="container">
     <h1>Happy Birthday! 🎂</h1>
-    <div class="subtitle" class="typewriter">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
+    <div class="subtitle" class="typewriter" class="rainbow-text">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
 
     <!--
 <div class="photo-placeholder">
@@ -195,18 +208,19 @@
 
     <!-- 📸 Блок з трьома фото -->
 <div class="photo-row">
-  <div class="photo-box left" style="animation-delay: 2s;">
+  <div class="photo-box left" style="animation-delay: 3s;">
     <img src="left.jpg" alt="Віка у ресторані" width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
   </div>
   <div class="photo-box center" style="animation-delay: 1s;">
     <!-- Фото Віки -->
     <img src="5233237880481115519.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
   </div>
-  <div class="photo-box right" style="animation-delay: 3s;">
-    <img src="rigth.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
+  
+  <div class="photo-box right" style="animation-delay: 2s;">
+    <img src="u1.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
   </div>
   <div class="photo-box right" style="animation-delay: 4s;">
-    <img src="u1.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
+    <img src="rigth.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
   </div>
 </div>
 
