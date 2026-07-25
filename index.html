@@ -1,265 +1,149 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>З Днем Народження, Віка!</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карусель</title>
 
-    .confetti {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .confetti div {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: hsl(var(--hue), 70%, 60%);
-      top: -20px;
-      animation: fall 6s linear infinite;
-      border-radius: 50%;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3.5em;
-      color: #e91e63;
-      animation: fadeInDown 1s ease-out;
-    }
-
-
-
-    .photo-placeholder {
-      margin: 30px auto;
-      width: 320px;
-      height: 420px;
-      border: 3px dashed #aaa;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #bbb;
-      font-size: 1.1em;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      animation: pulse 2s infinite;
-    }
-
-    .emoji-gallery {
-      font-size: 3em;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 40px;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    .rainbow-text {
-  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-  background-size: 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 5s linear infinite;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes rainbow {
-  0% { background-position: 0%; }
-  100% { background-position: 100%; }
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
 }
 
-    .emoji {
-      transition: transform 0.3s;
-      cursor: default;
-    }
-
-    .emoji:hover {
-      transform: scale(1.3) rotate(10deg);
-    }
-
-    .pony-block {
-      font-size: 3em;
-      margin-top: 80px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .typewriter {
-       display: inline-block; /* важливо! */
-        white-space: nowrap;
-
-  overflow: hidden;
-      font-size: 1.5em;
-      margin-bottom: 30px;
-      color: #555;
-  border-right: 2px solid #e91e63;
-  white-space: nowrap;
-  animation: typing 4s steps(30) forwards, blink 0.75s step-end infinite;
-  width: 0;
-        font-weight: bold;
-  font-family: 'Courier New', Courier, monospace; /* друкарська машинка */
+h1 {
+    font-size: 56px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
-    @keyframes typing {
-  from { width: 0; }
-  to   { width: 63ch; } /* Підлаштовується під довжину тексту */
+.carousel {
+    position: relative;
+    width: 900px;
+    max-width: 95vw;
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+.carousel img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
 }
 
-    footer {
-      margin-top: 60px;
-      font-size: 1em;
-      color: #777;
-      padding-bottom: 30px;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-      50%      { box-shadow: 0 0 25px rgba(255, 105, 180, 0.4); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-10px); }
-    }
-
-    .photo-row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  margin-top: 40px;
-  flex-wrap: wrap;
+.carousel img.active {
+    display: block;
+    animation: fade .4s;
 }
 
-.photo-box {
-  width: 320px;
-  height: 420px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  border: 3px dashed #aaa;
-  color: #bbb;
-  font-size: 1.1em;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInPhoto 1.2s ease-out forwards;
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-@keyframes fadeInPhoto {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    background: rgba(255,255,255,.85);
+    transition: .2s;
 }
 
-    
-  </style>
+button:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.prev {
+    left: -30px;
+}
+
+.next {
+    right: -30px;
+}
+</style>
+
 </head>
 <body>
-  <!-- 🎊 Анімоване конфетті -->
-  <div class="confetti" id="confetti"></div>
 
-  <div class="container">
-    <h1 class="rainbow-text">Happy Birthday! 🎂</h1>
-    <div class="typewriter"  style="text-align: center;">Тобі 18 – твоя чарівна історія тільки починається ✨</div>
+<h1>100 відтінків Тані</h1>
 
-    <!--
-<div class="photo-placeholder">
-      <img src="5233237880481115519.jpg" alt="Віка у ресторані" height="420" width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
-</div>
-    -->
+<div class="carousel">
 
-    <!-- 📸 Блок з трьома фото -->
-<div class="photo-row">
-  <div class="photo-box left" style="animation-delay: 3s;">
-    <img src="left.jpg" alt="Віка у ресторані" width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
-  </div>
-  <div class="photo-box center" style="animation-delay: 1s;">
-    <!-- Фото Віки -->
-    <img src="5233237880481115519.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
-  </div>
+    <button class="prev">&#10094;</button>
+
+    <img src="TImg/photo1.bmp" class="active">
+    <img src="TImg/photo2.bmp">
+    <img src="TImg/photo3.bmp">
+    <img src="TImg/photo4.bmp">
+  <img src="TImg/photo5.bmp">
+  <img src="TImg/photo6.bmp">
+  <img src="TImg/photo7.bmp">
+  <img src="TImg/photo8.bmp">
+  <img src="TImg/photo9.bmp">
+  <img src="TImg/photo10.bmp">
+  <img src="TImg/photo11.bmp">
+  <img src="TImg/photo12.bmp">
+  <img src="TImg/photo13.bmp">
+  <img src="TImg/photo14.bmp">
+  <img src="TImg/photo15.bmp">
+  <img src="TImg/photo16.bmp">
+  <img src="TImg/photo17.bmp">
+  <img src="TImg/photo18.bmp">
+  <img src="TImg/photo19.bmp">
+  <img src="TImg/photo20.bmp">
+  <img src="TImg/photo21.bmp">
+  <img src="TImg/photo22.bmp">
   
-  <div class="photo-box right" style="animation-delay: 2s;">
-    <img src="u1.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
-  </div>
-  <div class="photo-box right" style="animation-delay: 4s;">
-    <img src="rigth.jpg" alt="Віка у ресторані"  width="320" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);"/>
-  </div>
+
+    <button class="next">&#10095;</button>
+
 </div>
 
+<script>
 
-    <!-- 🧁 Святкові emoji -->
-    <div class="emoji-gallery">
-      <div class="emoji">🎁</div>
-      <div class="emoji">🌸</div>
-      <div class="emoji">🎂</div>
-      <div class="emoji">🎈</div>
-      <div class="emoji">🍰</div>
-      <div class="emoji">🧁</div>
-      <div class="emoji">🌷</div>
-    </div>
+const images = document.querySelectorAll(".carousel img");
+let current = 0;
 
-    
-    <div class="pony-block">
-      💗 My bestie 💗
-    </div>
+function show(index){
 
-    <footer>
-      
-    </footer>
-  </div>
+    images[current].classList.remove("active");
 
-  <!-- 🎉 JS: Генерація конфетті -->
-  <script>
-    const confettiContainer = document.getElementById('confetti');
-    for (let i = 0; i < 100; i++) {
-      const el = document.createElement('div');
-      el.style.left = Math.random() * 100 + '%';
-      el.style.animationDuration = (Math.random() * 3 + 3) + 's';
-      el.style.opacity = Math.random();
-      el.style.setProperty('--hue', Math.floor(Math.random() * 360));
-      confettiContainer.appendChild(el);
-    }
-  </script>
+    current = (index + images.length) % images.length;
+
+    images[current].classList.add("active");
+}
+
+document.querySelector(".next").onclick = () => {
+    show(current + 1);
+};
+
+document.querySelector(".prev").onclick = () => {
+    show(current - 1);
+};
+
+</script>
+
 </body>
 </html>
